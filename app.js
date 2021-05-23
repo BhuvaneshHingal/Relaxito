@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+const findOrCreate = require('mongoose-findorcreate');
 
 const app = express();
 
@@ -84,6 +85,7 @@ app.get("/secrets", function(req, res){
       }
     }
   });
+});
 
   app.get("/submit", function(req, res){
     if (req.isAuthenticated()){
@@ -149,6 +151,7 @@ app.get("/secrets", function(req, res){
   });
   
 });
+
 
 app.listen(3000, function() {
     console.log("Server started on port 3000.");
